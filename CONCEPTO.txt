@@ -1,0 +1,72 @@
+Grid Dinámico y Responsive 
+- En este apartado veremos algunas propiedades y valores de grid que nos pueden servir 
+  para crear grids dinámicos y responsive. 
+
+
+1) auto-fit y auto-fill :
+    - auto-fit : Este valor hace que las columnas se ajusten automáticamente al tamaño del contenedor, 
+      llenando el espacio disponible con tantas columnas como sea posible sin desbordar, según el width 
+      del viewport.
+    
+    - Es usado dentro del repeat() para definir el número de columnas.
+      Ejemplo :
+                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      
+      Ejemplo en CSS : 
+                                    .grid{
+                                        margin: auto;
+                                        margin-top: 50px;
+                                        background-color: transparent;
+                                        box-sizing: border-box;
+                                        min-width: 35vw;
+                                        width: fit-content;
+                                        max-width: 70vw;
+                                        min-height: 80vh;
+                                        border: 1px solid #000;
+                                        display: grid;
+                                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                                        grid-template-rows: repeat(3, 150px);
+                                        grid-auto-rows: 80px;
+                                        grid-auto-columns: 1fr;
+                                        grid-auto-flow:row;
+                                        row-gap: 20px;
+                                        column-gap: 15px;
+                                        gap: 20px 15px;
+                                        gap: 20px;
+                                    }
+
+    - auto-fill : Este valor también hace que las columnas se ajusten automáticamente al tamaño del contenedor, 
+      pero a diferencia de auto-fit, auto-fill llena el espacio disponible con tantas columnas como sea posible
+      así vean items para llenar esas columnas o no.
+        Ejemplo :
+
+                        rid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+        Ejemplo en CSS : 
+                                        .grid{
+                                            margin: auto;
+                                            margin-top: 50px;
+                                            background-color: transparent;
+                                            box-sizing: border-box;
+                                            min-width: 35vw;
+                                            width: fit-content;
+                                            max-width: 70vw;
+                                            min-height: 80vh;
+                                            border: 1px solid #000;
+                                            display: grid;
+                                            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                                            grid-template-rows: repeat(3, 150px);
+                                            grid-auto-rows: 80px;
+                                            grid-auto-columns: 1fr;
+                                            grid-auto-flow:row;
+                                            row-gap: 20px;
+                                            column-gap: 15px;
+                                            gap: 20px 15px;
+                                            gap: 20px;
+                                        }
+    - Diferencia en los usos : 
+        - Ambas son buenas para usar con muchos elementos dentro del Grid. 
+        - auto-fit es mejor cuando se quiere que los elementos se ajusten al tamaño del contenedor 
+          y no queden espacios vacíos o no se creen otras columnas vacías.
+        - auto-fill es mejor cuando se quiere que el diseño mantenga una estructura fija de columnas, 
+          o si queremos o necesitamos que se creen columnas vacías para mantener la alineación de los elementos.
